@@ -1,0 +1,17 @@
+{% extends "@Products/layout.html.twig" %}
+
+{% block title %}Lista de cateagorias{% endblock title %}
+
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock stylesheets %}
+
+{% block container %}
+    {% for categorie in categories %}
+        {{categorie.name}}
+    {% endfor %}
+{% endblock container %}
+
+{% block javascripts %}
+    {{ parent() }}
+{% endblock javascripts %}

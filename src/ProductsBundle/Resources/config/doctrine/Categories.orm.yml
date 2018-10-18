@@ -1,0 +1,35 @@
+ProductsBundle\Entity\Categories:
+    type: entity
+    table: categories
+    id:
+        idcategories:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        code:
+            type: string
+            nullable: false
+            length: 45
+            options:
+                fixed: false
+        name:
+            type: string
+            nullable: false
+            length: 45
+            options:
+                fixed: false
+        description:
+            type: string
+            nullable: false
+            length: 45
+            options:
+                fixed: false
+        active:
+            type: boolean
+            nullable: false
+    lifecycleCallbacks: {  }

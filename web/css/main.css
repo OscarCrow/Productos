@@ -1,0 +1,14 @@
+body {
+	margin: 0;
+	font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 0.9rem;
+	font-weight: 300;
+	line-height: 1.5;
+	color: #cfd2da;
+	text-align: left;
+	background-color: #252830;
+}
+
+textarea {
+	resize: none;
+}

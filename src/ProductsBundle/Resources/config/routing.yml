@@ -1,0 +1,19 @@
+homepage:
+    path:     /
+    defaults: { _controller: ProductsBundle:Home:index }
+
+products_add:
+    path:     /products/add
+    defaults: { _controller: ProductsBundle:Products:add }
+    
+products_index:
+    path:     /products/index
+    defaults: { _controller: ProductsBundle:Products:index }
+
+categories_add:
+    path:     /categories/add
+    defaults: { _controller: ProductsBundle:Categories:add }
+    
+categories_index:
+    path:     /categories/index
+    defaults: { _controller: ProductsBundle:Categories:index }
