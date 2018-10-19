@@ -13,6 +13,10 @@ products_index:
 products_edit:
     path:     /products/edit/{id}
     defaults: { _controller: ProductsBundle:Products:edit }
+    
+products_delete:
+    path:     /products/delete/{id}
+    defaults: { _controller: ProductsBundle:Products:delete }
 
 categories_add:
     path:     /categories/add

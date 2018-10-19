@@ -1,4 +1,0 @@
-ProductsBundle\Entity\Categories : 
-    properties : 
-        name : 
-            -  MinLength :  {  limit :  2 ,  message :  "El nombre debe tener al menos {{ limit }} caracteres. " }

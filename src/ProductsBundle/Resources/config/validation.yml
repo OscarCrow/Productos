@@ -1,0 +1,42 @@
+ProductsBundle\Entity\Categories :
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: 
+            fields: [code]
+            errorPath: code
+            message: 'El código ya existe.'
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: 
+            fields: [name]
+            errorPath: name
+            message: 'El nombre ya existe.'
+    properties :
+        code:
+            - Regex: '/^\w+/'
+        name:
+            - Length:
+                min: 2
+                minMessage: 'El nombre debe tener minimo 2 caracteres'
+                
+ProductsBundle\Entity\Products :
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+            fields: [code]
+            errorPath: code
+            message: 'El código ya existe.'
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+            fields: [name]
+            errorPath: name
+            message: 'El nombre ya existe.'
+    properties :
+        code:
+            - Regex: '/^\w+/'
+            - Length:
+                min: 4
+                max: 10
+                minMessage: 'El código debe tener minimo 2 caracteres'
+                maxMessage: 'El código debe tener maximo 10 caracteres'
+        name:
+            - Length:
+                min: 4
+                minMessage: 'El nombre debe tener minimo 4 caracteres'
+        price:
+            - Currency: ~

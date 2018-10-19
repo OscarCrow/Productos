@@ -55,9 +55,9 @@ class ProductsController extends Controller {
     public function editAction(Request $request, $id) {
         $em = $this->getDoctrine()->getManager();
         $products = $em->getRepository('ProductsBundle:Products')->find($id);
-        
+
         $form = $this->createForm(ProductsType::class, $products);
-        
+
         $form->handleRequest($request);
 
         if ($form->isSubmitted()) {
@@ -80,6 +80,17 @@ class ProductsController extends Controller {
         return $this->render('ProductsBundle:Product:editar.html.twig', array(
                     'form' => $form->createView()
         ));
+    }
+
+    public function deleteAction($id) {
+        $em = $this->getDoctrine()->getManager();
+
+        $product = $em->getRepository('ProductsBundle:Products')->find($id);
+
+        $em->remove($product);
+        $em->flush();
+
+        return $this->redirectToRoute("products_index");
     }
 
 }

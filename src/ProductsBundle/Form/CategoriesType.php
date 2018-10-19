@@ -21,7 +21,9 @@ class CategoriesType extends AbstractType
             ->add('code', TextType::class, array(
                 "attr" => array(
                     "class" => "form-control"
-                )))
+                ),
+                "trim" => true,
+                ))
             ->add('name', TextType::class, array(
                 "attr" => array(
                     "class" => "form-control",
@@ -31,7 +33,11 @@ class CategoriesType extends AbstractType
                 "attr" => array(
                     "class" => "form-control"
                 )))
-            ->add('active', CheckboxType::class)
+            ->add('active', CheckboxType::class,array(
+                'required'   => false,
+                "attr" => array(
+                    "value" => 0
+                )))
             ->add('Guardar', SubmitType::class, array(
                 "attr" => array(
                     "class" => "btn btn-success"
