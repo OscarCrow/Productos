@@ -1,13 +1,52 @@
 {% extends "@Products/layout.html.twig" %}
 
-{% block title %}Home{% endblock title %}
+{% block title %}Lista Productos{% endblock title %}
 
 {% block stylesheets %}
     {{ parent() }}
 {% endblock stylesheets %}
 
 {% block container %}
-    
+    <div class="row mt-3">
+        <div class="col">
+            <h2 class="text-center">Lista Productos</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <a href="{{ path('products_add') }}" class="btn btn-info mb-3 mt-3">Crear</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <table class="table table-dark">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th>Código</th>
+                        <th>Nombre</th>
+                        <th>Descripción</th>
+                        <th>Marca</th>
+                        <th>Precio</th>
+                        <th>Editar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for poduct in poducts %}
+                        <tr>
+                            <th scope="row">{{ loop.index0 }}</th>
+                            <td>{{ poduct.code }}</td>
+                            <td>{{ poduct.name }}</td>
+                            <td>{{ poduct.description }}</td>
+                            <td>{{ poduct.brand }}</td>
+                            <td>{{ poduct.price }}</td>
+                            <td><a href="{{ path('products_edit', {'id':poduct.idproduct}) }}" class="btn btn-warning btn-sm">Editar</a></td>
+                        </tr>
+                    {% endfor %}                
+                </tbody>
+            </table>
+        </div>
+    </div>
 {% endblock container %}
 
 {% block javascripts %}

@@ -9,6 +9,10 @@ products_add:
 products_index:
     path:     /products/index
     defaults: { _controller: ProductsBundle:Products:index }
+    
+products_edit:
+    path:     /products/edit/{id}
+    defaults: { _controller: ProductsBundle:Products:edit }
 
 categories_add:
     path:     /categories/add
@@ -17,3 +21,11 @@ categories_add:
 categories_index:
     path:     /categories/index
     defaults: { _controller: ProductsBundle:Categories:index }
+    
+categories_edit:
+    path:     /categories/edit/{id}
+    defaults: { _controller: ProductsBundle:Categories:edit }
+    
+categories_delete:
+    path:     /categories/delete/{id}
+    defaults: { _controller: ProductsBundle:Categories:delete }

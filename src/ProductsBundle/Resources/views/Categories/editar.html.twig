@@ -1,6 +1,6 @@
 {% extends "@Products/layout.html.twig" %}
 
-{% block title %}Nueva cateagoria{% endblock title %}
+{% block title %}Editar cateagoria{% endblock title %}
 
 {% block stylesheets %}
     {{ parent() }}
@@ -9,12 +9,12 @@
 {% block container %}
     <div class="row mt-3">
         <div class="col">
-            <h2>Nueva categoria</h2>
+            <h2>Editar categoria</h2>
         </div>
-    </div>    
+    </div>
     <div class="row">
         <div class="col">
-            <a href="{{ path('categories_index') }}" class="btn btn-info mb-3 mt-3">Regresar</a>
+            <a href="{{ path('products_index') }}" class="btn btn-info mb-3 mt-3">Regresar</a>
         </div>
     </div>
     {{form_start(form, {'action':'', 'method':'POST'})}}

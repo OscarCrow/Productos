@@ -32,4 +32,8 @@ ProductsBundle\Entity\Categories:
         active:
             type: boolean
             nullable: false
+    oneToMany:
+        idcategoriesProducts:
+            targetEntity: Products
+            mappedBy: idcategories
     lifecycleCallbacks: {  }

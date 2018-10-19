@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Categories
  *
  * @ORM\Table(name="categories")
- * @ORM\Entity(repositoryClass="ProductsBundle\Repository\CategoriesRepository")
+ * @ORM\Entity
  */
 class Categories
 {
@@ -49,6 +49,20 @@ class Categories
      */
     private $active;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\OneToMany(targetEntity="ProductsBundle\Entity\Products", mappedBy="idcategories")
+     */
+    private $idcategoriesProducts;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->idcategoriesProducts = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get toString
@@ -58,7 +72,7 @@ class Categories
     public function __toString() {
         return $this->name;
     }
-
+    
     /**
      * Get idcategories
      *
@@ -163,5 +177,39 @@ class Categories
     public function getActive()
     {
         return $this->active;
+    }
+
+    /**
+     * Add idcategoriesProduct
+     *
+     * @param \ProductsBundle\Entity\Products $idcategoriesProduct
+     *
+     * @return Categories
+     */
+    public function addIdcategoriesProduct(\ProductsBundle\Entity\Products $idcategoriesProduct)
+    {
+        $this->idcategoriesProducts[] = $idcategoriesProduct;
+
+        return $this;
+    }
+
+    /**
+     * Remove idcategoriesProduct
+     *
+     * @param \ProductsBundle\Entity\Products $idcategoriesProduct
+     */
+    public function removeIdcategoriesProduct(\ProductsBundle\Entity\Products $idcategoriesProduct)
+    {
+        $this->idcategoriesProducts->removeElement($idcategoriesProduct);
+    }
+
+    /**
+     * Get idcategoriesProducts
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getIdcategoriesProducts()
+    {
+        return $this->idcategoriesProducts;
     }
 }

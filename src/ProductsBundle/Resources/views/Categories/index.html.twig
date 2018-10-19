@@ -7,11 +7,77 @@
 {% endblock stylesheets %}
 
 {% block container %}
-    {% for categorie in categories %}
-        {{categorie.name}}
-    {% endfor %}
+    <div class="modal" id="myModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h6 class="modal-title">Realmente desea eliminar la Categoria</h6>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info btn-sm" data-dismiss="modal">Cancelar</button>
+                    <a href="#" id="btnconfimar" class="btn btn-danger btn-sm">Aceptar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col">
+            <h2 class="text-center">Lista Cateagorias</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <a href="{{ path('categories_add') }}" class="btn btn-info mb-3 mt-3">Crear</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <table class="table table-dark">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th>Código</th>
+                        <th>Nombre</th>
+                        <th>Descripción</th>
+                        <th>Activo</th>
+                        <th>Editar</th>
+                        <th>Eliminar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for category in categories %}
+                        <tr>
+                            <th scope="row">{{ loop.index0 }}</th>
+                            <td>{{ category.code }}</td>
+                            <td>{{ category.name }}</td>
+                            <td>{{ category.description }}</td>
+                            <td>
+                                {% if category.active == 1 %}
+                                    SI
+                                {% else %}
+                                    NO
+                                {% endif %}
+                            </td>
+                            <td><a href="{{ path('categories_edit', {'id':category.idcategories})}}" class="btn btn-warning btn-sm">Editar</a></td>
+                            <td>
+                                {% if category.idcategoriesProducts|length  == 0 %}
+                                    <a href="javascript:;" class="btn btn-danger btn-sm eliminar" url="{{ path('categories_delete', {'id':category.idcategories})}}">Eliminar</a>
+                                {% else %}
+                                    Categoria en uso
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% endfor %}                
+                </tbody>
+            </table>
+        </div>
+    </div>    
 {% endblock container %}
 
 {% block javascripts %}
     {{ parent() }}
+    <script src="{{ asset('js/categories.js') }}" type="text/javascript"></script>
 {% endblock javascripts %}

@@ -52,7 +52,7 @@ class ProductsType extends AbstractType {
             )))
                 ->add('Guardar', SubmitType::class, array(
                     "attr" => array(
-                        "class" => "btn btn-primary"
+                        "class" => "btn btn-success mt-3"
         )));
     }
 

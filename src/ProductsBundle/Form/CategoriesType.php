@@ -34,7 +34,7 @@ class CategoriesType extends AbstractType
             ->add('active', CheckboxType::class)
             ->add('Guardar', SubmitType::class, array(
                 "attr" => array(
-                    "class" => "btn btn-primary"
+                    "class" => "btn btn-success"
             )));
     }/**
      * {@inheritdoc}
